@@ -1,251 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lifestyle Survey</title>
-    <link rel="stylesheet" href="survey.css">
-</head>
-<body>
+    <link rel="stylesheet" href="survey.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h1>Lifestyle Survey</h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#" onclick="showSurveyForm()" class="nav-link active" id="survey-link">Fill Out Survey</a></li>
-                <li><a href="#" onclick="showResults()" class="nav-link" id="results-link">View Survey Results</a></li>
-            </ul>
-        </nav>
-
-        <!-- Survey Form Screen -->
-        <div id="survey-screen" class="screen active">
-            <div class="form-container">
-                <h2>Lifestyle Survey</h2>
-                <form id="survey-form">
-                    <!-- Personal Details Section -->
-                    <div class="section">
-                        <h3>Personal Details</h3>
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
-                            <span class="error-message" id="name-error"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="surname">Surname:</label>
-                            <input type="text" id="surname" name="surname" required>
-                            <span class="error-message" id="surname-error"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="age">Age:</label>
-                            <input type="number" id="age" name="age" min="5" max="120" required>
-                            <span class="error-message" id="age-error"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" required>
-                            <span class="error-message" id="date-error"></span>
-                        </div>
-                    </div>
-
-                    <!-- Favorite Food Section -->
-                    <div class="section">
-                        <h3>What is your favourite food? (Select all that apply)</h3>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Pizza">
-                                <span class="checkmark"></span>
-                                Pizza
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Pasta">
-                                <span class="checkmark"></span>
-                                Pasta
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Pap and Wors">
-                                <span class="checkmark"></span>
-                                Pap and Wors
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Chicken stir fry">
-                                <span class="checkmark"></span>
-                                Chicken stir fry
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Beef stir fry">
-                                <span class="checkmark"></span>
-                                Beef stir fry
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="food" value="Other">
-                                <span class="checkmark"></span>
-                                Other
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Rating Questions Section -->
-                    <div class="section">
-                        <h3>Please rate the following on a scale of 1-5</h3>
-                        
-                        <div class="rating-question">
-                            <h4>I like to eat out</h4>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="eat-out" value="1" required>
-                                    <span class="radio-custom"></span>
-                                    Strongly Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="eat-out" value="2">
-                                    <span class="radio-custom"></span>
-                                    Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="eat-out" value="3">
-                                    <span class="radio-custom"></span>
-                                    Neutral
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="eat-out" value="4">
-                                    <span class="radio-custom"></span>
-                                    Agree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="eat-out" value="5">
-                                    <span class="radio-custom"></span>
-                                    Strongly Agree
-                                </label>
-                            </div>
-                            <span class="error-message" id="eat-out-error"></span>
-                        </div>
-
-                        <div class="rating-question">
-                            <h4>I like to watch movies</h4>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-movies" value="1" required>
-                                    <span class="radio-custom"></span>
-                                    Strongly Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-movies" value="2">
-                                    <span class="radio-custom"></span>
-                                    Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-movies" value="3">
-                                    <span class="radio-custom"></span>
-                                    Neutral
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-movies" value="4">
-                                    <span class="radio-custom"></span>
-                                    Agree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-movies" value="5">
-                                    <span class="radio-custom"></span>
-                                    Strongly Agree
-                                </label>
-                            </div>
-                            <span class="error-message" id="watch-movies-error"></span>
-                        </div>
-
-                        <div class="rating-question">
-                            <h4>I like to watch TV</h4>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-tv" value="1" required>
-                                    <span class="radio-custom"></span>
-                                    Strongly Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-tv" value="2">
-                                    <span class="radio-custom"></span>
-                                    Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-tv" value="3">
-                                    <span class="radio-custom"></span>
-                                    Neutral
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-tv" value="4">
-                                    <span class="radio-custom"></span>
-                                    Agree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="watch-tv" value="5">
-                                    <span class="radio-custom"></span>
-                                    Strongly Agree
-                                </label>
-                            </div>
-                            <span class="error-message" id="watch-tv-error"></span>
-                        </div>
-
-                        <div class="rating-question">
-                            <h4>I like to listen to the radio</h4>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="listen-radio" value="1" required>
-                                    <span class="radio-custom"></span>
-                                    Strongly Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="listen-radio" value="2">
-                                    <span class="radio-custom"></span>
-                                    Disagree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="listen-radio" value="3">
-                                    <span class="radio-custom"></span>
-                                    Neutral
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="listen-radio" value="4">
-                                    <span class="radio-custom"></span>
-                                    Agree
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="listen-radio" value="5">
-                                    <span class="radio-custom"></span>
-                                    Strongly Agree
-                                </label>
-                            </div>
-                            <span class="error-message" id="listen-radio-error"></span>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit Survey</button>
-                </form>
-            </div>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-brand">
+          <h1>Lifestyle Survey</h1>
         </div>
+        <ul class="nav-menu">
+          <li>
+            <a
+              href="#"
+              onclick="showSurveyForm()"
+              class="nav-link active"
+              id="survey-link"
+              >Fill Out Survey</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="showResults()"
+              class="nav-link"
+              id="results-link"
+              >View Survey Results</a
+            >
+          </li>
+        </ul>
+      </nav>
 
-        <!-- Results Screen -->
-        <div id="results-screen" class="screen">
-            <div class="results-container">
-                <h2>Survey Results</h2>
-                <div id="results-content">
-                    <!-- Results will be populated by JavaScript -->
+      <!-- Survey Form -->
+      <div id="survey-screen" class="screen active">
+        <div class="form-container">
+          <h2>Lifestyle Survey</h2>
+          <form id="survey-form">
+            <!-- Personal Details -->
+            <div class="section">
+              <h3>Personal Details</h3>
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <span class="error-message" id="name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required />
+                <span class="error-message" id="surname-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="age">Age:</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  min="5"
+                  max="120"
+                  required
+                />
+                <span class="error-message" id="age-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required />
+                <span class="error-message" id="date-error"></span>
+              </div>
+            </div>
+
+            <!-- Favorite Food Section -->
+            <div class="section">
+              <h3>What is your favourite food? (Select all that apply)</h3>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Pizza" />
+                  <span class="checkmark"></span>
+                  Pizza
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Pasta" />
+                  <span class="checkmark"></span>
+                  Pasta
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Pap and Wors" />
+                  <span class="checkmark"></span>
+                  Pap and Wors
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Chicken stir fry" />
+                  <span class="checkmark"></span>
+                  Chicken stir fry
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Beef stir fry" />
+                  <span class="checkmark"></span>
+                  Beef stir fry
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="food" value="Other" />
+                  <span class="checkmark"></span>
+                  Other
+                </label>
+              </div>
+            </div>
+
+            <!-- Rating Questions -->
+            <div class="section">
+              <h3>Please rate the following on a scale of 1-5</h3>
+
+              <div class="rating-question">
+                <h4>I like to eat out</h4>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="eat-out" value="1" required />
+                    <span class="radio-custom"></span>
+                    Strongly Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="eat-out" value="2" />
+                    <span class="radio-custom"></span>
+                    Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="eat-out" value="3" />
+                    <span class="radio-custom"></span>
+                    Neutral
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="eat-out" value="4" />
+                    <span class="radio-custom"></span>
+                    Agree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="eat-out" value="5" />
+                    <span class="radio-custom"></span>
+                    Strongly Agree
+                  </label>
                 </div>
+                <span class="error-message" id="eat-out-error"></span>
+              </div>
+
+              <div class="rating-question">
+                <h4>I like to watch movies</h4>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input
+                      type="radio"
+                      name="watch-movies"
+                      value="1"
+                      required
+                    />
+                    <span class="radio-custom"></span>
+                    Strongly Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-movies" value="2" />
+                    <span class="radio-custom"></span>
+                    Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-movies" value="3" />
+                    <span class="radio-custom"></span>
+                    Neutral
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-movies" value="4" />
+                    <span class="radio-custom"></span>
+                    Agree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-movies" value="5" />
+                    <span class="radio-custom"></span>
+                    Strongly Agree
+                  </label>
+                </div>
+                <span class="error-message" id="watch-movies-error"></span>
+              </div>
+
+              <div class="rating-question">
+                <h4>I like to watch TV</h4>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="watch-tv" value="1" required />
+                    <span class="radio-custom"></span>
+                    Strongly Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-tv" value="2" />
+                    <span class="radio-custom"></span>
+                    Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-tv" value="3" />
+                    <span class="radio-custom"></span>
+                    Neutral
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-tv" value="4" />
+                    <span class="radio-custom"></span>
+                    Agree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="watch-tv" value="5" />
+                    <span class="radio-custom"></span>
+                    Strongly Agree
+                  </label>
+                </div>
+                <span class="error-message" id="watch-tv-error"></span>
+              </div>
+
+              <div class="rating-question">
+                <h4>I like to listen to the radio</h4>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input
+                      type="radio"
+                      name="listen-radio"
+                      value="1"
+                      required
+                    />
+                    <span class="radio-custom"></span>
+                    Strongly Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="listen-radio" value="2" />
+                    <span class="radio-custom"></span>
+                    Disagree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="listen-radio" value="3" />
+                    <span class="radio-custom"></span>
+                    Neutral
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="listen-radio" value="4" />
+                    <span class="radio-custom"></span>
+                    Agree
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="listen-radio" value="5" />
+                    <span class="radio-custom"></span>
+                    Strongly Agree
+                  </label>
+                </div>
+                <span class="error-message" id="listen-radio-error"></span>
+              </div>
             </div>
+
+            <button type="submit" class="submit-btn">Submit Survey</button>
+          </form>
         </div>
+      </div>
+
+      <!-- Results Screen -->
+      <div id="results-screen" class="screen">
+        <div class="results-container">
+          <h2>Survey Results</h2>
+          <div id="results-content"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Success Modal -->
     <div id="success-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Success!</h3>
-            <p>Your survey has been submitted successfully.</p>
-        </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Success!</h3>
+        <p>Your survey has been submitted successfully.</p>
+      </div>
     </div>
     <script src="survey.js"></script>
-</body>
+  </body>
 </html>
